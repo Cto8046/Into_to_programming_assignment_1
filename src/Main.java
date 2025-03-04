@@ -1,12 +1,11 @@
-//This is a program that finds perfect numbers within a users given range
-
+//This is a program used for finding perfect numbers based on user input
 
 import java.util.Scanner;
 
 public class Main {
 
     // Method to check for perfect numbers
-    public static void Main(long limit) {
+    public static void findPerfectNumbers(long limit) {
         System.out.println("Checking for perfect numbers up to " + limit + "...");
 
         for (long num = 1; num <= limit; num++) {
@@ -19,32 +18,33 @@ public class Main {
                 }
             }
 
-            public static class UserInputting {
-            }
-            public void UserInputting(String[] args) {
-                Scanner scanner = new Scanner(System.in); // scanner obj to read input
-                long upperLimit = 0;
-
-                // Loop to keep asking until user enters a valid number
-                while (true) {
-                    System.out.print("Enter a number: ");
-
-                    if (scanner.hasNextLong()) { // check if input is a number
-                        upperLimit = scanner.nextLong(); // store number
-                        break; // exit loop
-                    } else {
-                        System.out.println("Nope, enter a number please."); // error msg
-                        scanner.next(); // clear bad input
-                    }
-                }
-
-                scanner.close();
-            }
-
             // If sum of divisors = number, it's perfect
             if (sum == num) {
                 System.out.println(num + " is perfect!");
             }
         }
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in); // Scanner object to read input
+        long upperLimit;
+
+        // Loop to keep asking until the user enters a valid number
+        while (true) {
+            System.out.print("Enter a number: ");
+
+            if (scanner.hasNextLong()) { // Check if input is a number
+                upperLimit = scanner.nextLong(); // Store number
+                break; // Exit loop
+            } else {
+                System.out.println("Nope, enter a number please."); // Error message
+                scanner.next(); // Clear bad input
+            }
+        }
+
+        scanner.close();
+
+        // Call method to find perfect numbers
+        findPerfectNumbers(upperLimit);
     }
 }
